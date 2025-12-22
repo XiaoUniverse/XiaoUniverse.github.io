@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name</title>
+  <title>Yuzhuo Xiao</title>
   <style>
     :root {
       --text: #111;
       --muted: #555;
       --line: #e5e5e5;
       --link: #0b57d0;
+      --bg: #fff;
+      --card: #fafafa;
     }
     body {
       max-width: 900px;
@@ -19,31 +21,45 @@
       color: var(--text);
       line-height: 1.65;
       font-size: 16px;
+      background: var(--bg);
     }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
     header {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
       padding-bottom: 18px;
       border-bottom: 1px solid var(--line);
       margin-bottom: 22px;
     }
+
+    /* Header layout with photo */
+    .header-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .header-grid { grid-template-columns: 1fr; }
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      background: #f2f2f2;
+    }
+
     h1 {
       margin: 0;
       font-size: 34px;
       letter-spacing: -0.2px;
     }
-    .sub {
-      color: var(--muted);
-      margin: 0;
-    }
-    .links a {
-      color: var(--link);
-      text-decoration: none;
-      margin-right: 12px;
-      white-space: nowrap;
-    }
-    .links a:hover { text-decoration: underline; }
+    .sub { color: var(--muted); margin: 6px 0 0 0; }
+    .links { margin: 10px 0 0 0; }
+    .links a { margin-right: 12px; white-space: nowrap; }
 
     section { margin: 22px 0; }
     h2 {
@@ -53,15 +69,36 @@
     }
     ul { margin: 8px 0 0 18px; }
     li { margin: 4px 0; }
-
-    .item { margin: 10px 0 14px 0; }
-    .item-title { font-weight: 600; }
-    .meta { color: var(--muted); }
     .small { font-size: 14px; color: var(--muted); }
 
-    .pub b { font-weight: 700; }
-    .pub a { color: var(--link); text-decoration: none; }
-    .pub a:hover { text-decoration: underline; }
+    /* Publication / Project card with image */
+    .card {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+      margin: 12px 0;
+    }
+    @media (max-width: 640px) {
+      .card { grid-template-columns: 1fr; }
+    }
+
+    .thumb {
+      width: 100%;
+      height: 110px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      background: #f2f2f2;
+    }
+
+    .item-title { font-weight: 650; }
+    .meta { color: var(--muted); margin-top: 4px; }
+    .btns { margin-top: 8px; }
+    .btns a { margin-right: 10px; }
 
     .badge {
       display: inline-block;
@@ -72,28 +109,37 @@
       color: var(--muted);
       margin-left: 6px;
       vertical-align: middle;
+      background: #fff;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <div>
-      <h1>Yuzhuo Xiao</h1>
-      <p class="sub">
-        I am an undergraduate student from Guizhou University, majoring in Computer Science and Technology.
-      </p>
-      <p class="sub">
-        Email: <a href="mailto:your@email.com">cse.yzxiao22@gzu.edu.cn</a> · Location: Guiyang, China
-      </p>
-      <p class="links">
-        <a href="cv.pdf">CV</a>
-        <a href="https://scholar.google.com/citations?user=ENIys0kAAAAJ&hl=en">Google Scholar</a>
-        <a href="https://github.com/XiaoUniverse">GitHub</a>
-      </p>
-      <p class="small">
-        I am mainly interested in human motion, 3D/4D reconstruction, and video generation, and I am also interested in NLP and multimodal reasoning.
-      </p>
+    <div class="header-grid">
+      <img class="avatar" src="assets/profile.png" alt="Profile photo" />
+
+      <div>
+        <h1>Yuzhuo Xiao</h1>
+
+        <p class="sub">
+          Undergraduate student at Guizhou University, majoring in Computer Science and Technology.
+        </p>
+
+        <p class="sub">
+          Email: <a href="mailto:cse.yzxiao22@gzu.edu.cn">cse.yzxiao22@gzu.edu.cn</a> · Location: Guiyang, China
+        </p>
+
+        <p class="links">
+          <a href="cv.pdf">CV</a>
+          <a href="https://scholar.google.com/citations?user=ENIys0kAAAAJ&hl=en">Google Scholar</a>
+          <a href="https://github.com/XiaoUniverse">GitHub</a>
+        </p>
+
+        <p class="small">
+          I am interested in human motion, 3D/4D reconstruction, and video generation. I am also interested in NLP and multimodal reasoning.
+        </p>
+      </div>
     </div>
   </header>
 
@@ -101,96 +147,36 @@
     <h2>Research Interests</h2>
     <ul>
       <li>Multimodal learning and reasoning</li>
-      <li>Natural Language Processing </li>
-      <li>human avatars and 3D/4D human reconstruction</li>
-      <li>Video generation </li>
+      <li>Natural Language Processing</li>
+      <li>Human avatars and 3D/4D human reconstruction</li>
+      <li>Video generation</li>
     </ul>
   </section>
 
   <section>
     <h2>Publications</h2>
-    <div class="small">
-    </div>
 
-    <!-- Example publication item -->
-    <div class="item pub">
-      <div class="item-title">
-        XFacta: Contemporary, Real-World Dataset and Evaluation for Multimodal Misinformation Detection with Multimodal LLMs
-        <span class="badge">arXiv</span>
-      </div>
-      <div class="meta">
-        <b>Yuzhuo Xiao>Yu>, ZeyuHan, Yuhan Wang, Huaizu Jiang
-      </div>
+    <div class="card">
+      <img class="thumb" src="assets/xfacta.png" alt="XFacta teaser" />
+
       <div>
-        <a href="paper.pdf">PDF</a> ·
-        <a href="https://arxiv.org/abs/2508.09999">arXiv</a> ·
-        <a href="https://github.com/neu-vi/XFacta">Code</a>
+        <div class="item-title">
+          XFacta: Contemporary, Real-World Dataset and Evaluation for Multimodal Misinformation Detection with Multimodal LLMs
+          <span class="badge">arXiv</span>
+        </div>
+
+        <div class="meta">
+          <b>Yuzhuo Xiao</b>, Zeyu Han, Yuhan Wang, Huaizu Jiang
+        </div>
+
+        <div class="btns">
+          <a href="paper.pdf">PDF</a>
+          <a href="https://arxiv.org/abs/2508.09999">arXiv</a>
+          <a href="https://github.com/neu-vi/XFacta">Code</a>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- <section>
-    <h2>Selected Projects</h2>
-
-    <div class="item">
-      <div class="item-title">
-        Aligning motion reconstruction models with video generation models
-      </div>
-      <div class="meta">
-        2025 · Topics: motion understanding, video generation, score design, distillation
-      </div>
-      <ul>
-        <li>Goal: keep human motion understanding while improving video generation.</li>
-        <li>Designed two real scores (motion understanding, video quality) and one fake score to approximate them.</li>
-        <li>Pipeline: OpenPose 2D keypoints → 3D reconstruction → DMD-style optimization for video model.</li>
-      </ul>
-      <div class="small">
-        Links: <a href="https://github.com/">Code</a> · <a href="#">Project page</a> · <a href="#">Demo</a>
-      </div>
-    </div> -->
-
-    <!-- <div class="item">
-      <div class="item-title">
-        4D human avatar reconstruction (add your project name)
-      </div>
-      <div class="meta">
-        2024–2025 · Topics: 3D/4D reconstruction, tracking, rendering
-      </div>
-      <ul>
-        <li>One sentence: what problem you solved and why it matters.</li>
-        <li>One sentence: your key method / model / dataset.</li>
-        <li>One sentence: a measurable result (metric, speed, quality, ablation).</li>
-      </ul>
-      <div class="small">
-        Links: <a href="https://github.com/">Code</a> · <a href="#">Project page</a>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- <section>
-    <h2>Education</h2>
-    <div class="item">
-      <div class="item-title">MSc in Your Major</div>
-      <div class="meta">Your University, 2023–2025</div>
-      <div class="small">Advisor: Prof. Name (optional) · GPA: X.XX/4.00 (optional)</div>
-    </div>
-
-    <div class="item">
-      <div class="item-title">BSc in Your Major</div>
-      <div class="meta">Your University, 2019–2023</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Experience</h2>
-    <div class="item">
-      <div class="item-title">Research Assistant, Lab Name</div>
-      <div class="meta">2024–2025 · City, Country</div>
-      <ul>
-        <li>What you did (1–2 bullets), with concrete outputs (code, dataset, paper draft, experiments).</li>
-      </ul>
-    </div>
-  </section> -->
 
   <section>
     <h2>Awards</h2>
